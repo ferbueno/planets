@@ -3,7 +3,7 @@ class WeatherJob < ApplicationJob
 
   def perform
     # Start at 0
-    next_day = (Day.order(:day).pluck(:day)&.first || -1) + 1
+    next_day = (Day.order(day: :desc).pluck(:day)&.first || -1) + 1
     weather = Days::WeatherCalculator.call(next_day)
     if weather.is_a?(String)
       Day.create!(

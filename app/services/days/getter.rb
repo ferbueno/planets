@@ -7,7 +7,7 @@ module Days
     end
 
     def call
-      Day.find_by(number: @day)
+      Day.find_by(day: @day)
     end
   end
 end

@@ -14,5 +14,5 @@
 # Crono.perform(TestJob).every 2.days, at: '15:30'
 #
 
-# Choosing every 4 minutes so a year will be finished each day
-Crono.perform(WeatherJob).every 4.minutes
+# Choosing every 2 minutes so two years will be finished each day
+Crono.perform(WeatherJob).every 2.minutes

@@ -1,6 +1,6 @@
 module Planets
   class PositionCalculator < ApplicationService
-    attr_reader :planet, :day
+    attr_reader :planet, :day, :offset
 
     # @param [Integer, Planet] planet
     #   the planet or the id of the planet to calculate the position
@@ -9,6 +9,7 @@ module Planets
     def initialize(planet, day)
       @planet = planet.is_a?(Planet) ? planet : Planet.find(planet)
       @day = day
+      @offset = @planet.clockwise ? -90 : 90
     end
 
     # Gets the position in its own orbit in a specific day
@@ -18,12 +19,11 @@ module Planets
     #
     # @return [Integer]
     def call
-      initial_position = ((@planet.speed * @day) % 360)
-      if !planet.clockwise && initial_position != 0
+      initial_position = (((@planet.speed * @day) + @offset) % 360)
+      if !@planet.clockwise && initial_position != 0
         return 360 - initial_position
       end
       initial_position
-      # initial_position + (@planet.clockwise ? -90 : 90)
     end
   end
 end
