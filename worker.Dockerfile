@@ -11,9 +11,6 @@ WORKDIR $RAILS_ROOT
 ENV RAILS_ENV='production'
 ENV RAKE_ENV='production'
 
-# Install bundler 2
-#RUN gem install bundler -v 2.2.12
-
 # Adding gems
 COPY Gemfile Gemfile
 

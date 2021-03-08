@@ -84,4 +84,4 @@ production:
   username: <%= ENV['PLANETS_DATABASE_USER'] %>
   password: <%= ENV['PLANETS_DATABASE_PASSWORD'] %>
   host: <%= ENV['PLANETS_DATABASE_URL'] %>
-  port: 5432
+  port: <%= ENV['PLANETS_DATABASE_PORT'] %>

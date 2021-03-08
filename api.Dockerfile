@@ -11,9 +11,6 @@ WORKDIR $RAILS_ROOT
 ENV RAILS_ENV='production'
 ENV RAKE_ENV='production'
 
-# Install bundler 2
-#RUN gem install bundler -v 2.2.12
-
 # Adding gems
 COPY Gemfile Gemfile
 
@@ -27,8 +24,8 @@ RUN bundle install --jobs 20 --retry 5 --without development test
 COPY . .
 
 # Expose the port
-EXPOSE 8080
+EXPOSE 80
 
 # Run the web server
 # Output the date as a first line, to trigger logging
-CMD date && rails s -p 8080 -b 0.0.0.0
+CMD date && rails s -p 80 -b 0.0.0.0
