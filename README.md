@@ -13,6 +13,10 @@ The droplet is accesible through the IP: 159.89.46.130
 - GET /weather?page=1&size=20
 - GET /weather/:day
 
+You can find the Docker images used for the project here:
+- https://hub.docker.com/repository/docker/ferbuenob/planets_api
+- https://hub.docker.com/repository/docker/ferbuenob/planets_worker
+
 Things you may want to cover:
 
 * Ruby version
