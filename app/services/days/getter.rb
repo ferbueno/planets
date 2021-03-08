@@ -3,8 +3,7 @@ module Days
     attr_reader :day
 
     def initialize(day)
-      Integer(day)
-      @day = day
+      @day = Integer(day)
     end
 
     def call
@@ -12,7 +11,10 @@ module Days
       return new_day if new_day
 
       # Failsafe if the day does not exist
-      Days::WeatherCalculator.call(new_day)
+      {
+        day: @day,
+        weather: Days::WeatherCalculator.call(@day),
+      }
     end
   end
 end
